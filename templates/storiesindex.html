@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block navblock %}
+<div class="nav" style="display: none;">
+    <ul>
+        <li>
+            <div class="navbar"><a href="{{url_for('showStoryIndex')}}">Stories</a></div>
+        </li>
+        <li>
+            <ul>
+            <li><div class="misc_item"><a href="{{url_for('showAddStory')}}">Publish your own story here!</a></div>
+            <li><div class="misc_item"><a href="{{url_for('showRegister')}}">Register</a></div>
+            </ul>
+    </ul>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="stories">
+    {% for storyEntry in storiesListHtml %}
+        <div class="storyElem"><a href="/stories/{{storyEntry[0]}}">"{{storyEntry[1]}}" by {{storyEntry[2]}}</a></br></div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,224 @@
+/*<a href="{{url_for('')}}">Stories</a>*/
+
+body{
+    background-color: #303030;
+    color: white;
+    font-size: 150%;
+}
+a:link{
+    color: #59C0DC;
+}
+a:visited{
+    color: #ced0ce;
+}
+.header {
+    border-radius: 5px;
+    padding: 5px;
+    text-align: left;
+    background: #b1b6a6;
+    color: #6E44FF;
+    font-size: 5vh;
+}
+.navbar {
+    font-size: 3vh;
+    border-radius: 5px;
+    background: #819595;
+    color: #BA274A;
+}
+.misc {
+    border-radius: 5px;
+    padding: 5px;
+    background: #6F2DA8;
+}
+.misc_item {
+    font-size: 2vh;
+    border-radius: 5px;
+    background: #b1b6a6;
+    color: #6E44FF;
+}
+.header a:link{
+    color: #6E44FF;
+}
+.header a:visited{
+    color: #6E44FF;
+}
+
+.misc_item a:link {
+    color: #819595;
+}
+.misc_item a:visited{
+    color: #819595;
+}
+
+.storyElem {
+    background: #404040;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+/* STORY */
+
+.storyText {
+    
+    padding: 5px;
+    margin: 5px;
+    background: #404040;
+}
+
+/*HERE*/
+.nav {
+    /*  ширна произвольная, не стесняйтесь экспериментировать */
+    width: 320px;
+    min-width: 320px;
+    /* фиксируем и выставляем высоту панели на максимум */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    /* сдвигаем (прячем) панель относительно левого края страницы */
+    left: -370px;
+    /* внутренние отступы */
+    padding: 15px 20px;
+    /* плавный переход смещения панели */
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    transition: left 0.3s;
+    /* определяем цвет фона панели */
+    background: #6F2DA8;
+    /* поверх других элементов */
+    z-index: 2000;
+}
+
+.nav-toggle {
+    /* абсолютно позиционируем */
+    position: absolute;
+    /* относительно левого края панели */
+    right: 20px;
+    background: inherit;
+    /* цвет текста */
+    color: #6E44FF;
+    /* вид курсора */
+    cursor: pointer;
+    /* всегда поверх других элементов страницы */
+    z-index: 2001;
+    /* анимируем цвет текста при наведении */
+    -webkit-transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+}
+.nav-toggle:after {
+    content: '\2630';
+    text-decoration: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+}
+.nav-toggle:hover {
+    color: #000000;
+}
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle {
+    left: auto;
+    right: 2px;
+    top: 1em;
+}
+
+/**
+ * Когда флажок установлен, открывается панель
+ * используем псевдокласс:checked
+ */
+
+[id='nav-toggle']:checked ~ .nav {
+    left: 0;
+    box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
+/*
+ * смещение контента страницы
+ * на размер ширины панели,
+ * фишка необязательная, на любителя
+*/
+
+[id='nav-toggle']:checked ~ main > stories {
+    -webkit-transform: translateX(320px);
+    -moz-transform: translateX(320px);
+    transform: translateX(320px);
+}
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+    content: '\2715';
+}
+
+.nav > ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav > ul > li {
+    line-height: 2.5;
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transition: opacity .5s .1s, -webkit-transform .5s .1s;
+    -moz-transition: opacity .5s .1s, -moz-transform .5s .1s;
+    -ms-transition: opacity .5s .1s, -ms-transform .5s .1s;
+    transition: opacity .5s .1s, transform .5s .1s;
+}
+
+[id='nav-toggle']:checked ~ .nav > ul > li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+}
+
+/**
+ * анимируем линию подчеркивания
+ * ссылок при наведении
+ */
+
+.nav > ul > li > a:hover:before {
+    width: 0%;
+    background: #3bc1a0;
+    -webkit-transition: width .5s ease;
+    transition: width .5s ease;
+}
+
+.nav > ul > li > a:hover:after {
+    width: 0%;
+    background: transparent;
+    -webkit-transition: width 0s ease;
+    transition: width 0s ease;
+}
+
+
+/*HERE*/
+/*
+ * 303030 Jet
+ * FFFFFF White
+ * E6E8E6 Platinum
+ * CED0CE Timberwolf
+ * 191919 Eerie black
+*/
+
+/*
+ * 303030 Jet
+ * 819595 Cadet gray
+ * b1b6a6 Ash gray
+ * 6e44ff Purple
+*/

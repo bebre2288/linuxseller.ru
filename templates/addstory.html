@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Add Story</title>
+    <link rel="stylesheet" href='/static/main.css'>
+</head>
+    <body>
+        <h1>Share your story with everybody</h1></br>
+        <form method="post">
+            <input type="text" name="storyName"
+                   placeholder="Story Name"
+                   value="{{ request.form['storyName'] }}">
+            </input><br>
+            <label for="content">Story Text</label>
+            <br>
+            <textarea name="storyText">{{ request.form['storyText'] }}
+            </textarea></br>
+            <input type="text" name="login"
+                   placeholder="login"
+                   value="{{ request.form['login'] }}">
+            </input>
+            <input type="password" name="password"
+                   placeholder="password"
+                   value="{{ request.form['password'] }}">
+            </input><br>
+
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

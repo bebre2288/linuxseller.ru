@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>linuxseller.ru</title>
+    <link rel="stylesheet" href='/static/main.css'>
+</head>
+    <body>
+        
+        <div class="header">
+            <a href="/">linuxseller.ru</a>: stories
+            <input type="checkbox" id="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle" onclick></label>
+            {% block navblock %}
+            {% endblock %}
+        </div>
+        <div>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

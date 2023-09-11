@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block navblock %}
+<div class="nav" style="display: none;">
+                <ul>
+                    <li>
+                        <div class="navbar">
+                            <a href="{{url_for('showStoryIndex')}}">Stories</a>
+                        </div>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><div class="misc_item"><a href="{{url_for('showAddStory')}}">Publish your own story here!</a></div>
+                            <li><div class="misc_item"><a href="{{url_for('showRegister')}}">Register</a></div>
+                        </ul>
+                </ul>
+            </div>
+
+{% endblock %}
+
+{% block content %}
+        <h1>{{storyName}} By {{userLogin}}</h1>{{dateTime}}</br>
+        <a href="{{url_for('showStoryIndex')}}">Home</a>
+        <div class="storyText">
+            {% for line in storyText.split('\n') %}
+                {{ line }}
+                <br />
+            {% endfor %}
+        </div>
+        <a href="{{url_for('showStoryIndex')}}">Home</a>
+
+
+{% endblock %}

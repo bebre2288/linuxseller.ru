@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href='/static/main.css'>
+</head>
+    <body>
+        <div class="top">
+            <h1>Registration</h1>
+        </div>
+        <div>
+            <form method="post">
+            <input type="text" name="login"
+                   placeholder="login"
+                   value="{{ request.form['login'] }}">
+            </input></br>
+            <input type="password" name="password"
+                   placeholder="password"
+                   value="{{ request.form['password'] }}">
+            </input></br>
+            <input type="email" name="email"
+                   placeholder="email"
+                   value="{{ request.form['email'] }}">
+            </input></br>
+
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+        </div>
+    </body>
+</html>
